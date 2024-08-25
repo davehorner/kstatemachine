@@ -8,7 +8,6 @@ plugins {
     alias(libs.plugins.jetbrainsCompose)
     alias(libs.plugins.compose.compiler)
     kotlin("plugin.serialization") version "1.5.30"
-//    kotlin("plugin.serialization") version "2.0.0"
 }
 
 kotlin {
@@ -40,8 +39,11 @@ kotlin {
             implementation(libs.koin.androidx.compose)
         }
         commonMain.dependencies {
-//            implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:2.0.0")
+            implementation(libs.kermit)
             implementation(libs.landscapist.coil3)
+
+            api(libs.koin.core)
+            implementation(libs.koin.compose)
             implementation(libs.navigator.koin)
             implementation(libs.navigator.screen.model)
 
@@ -57,17 +59,16 @@ kotlin {
 //            implementation(libs.kstatemachine.coroutines)
             val voyagerVersion = "1.1.0-beta02"
 
-//            implementation("cafe.adriel.voyager:voyager-navigator:$voyagerVersion")
             implementation("cafe.adriel.voyager:voyager-screenmodel:$voyagerVersion")
+//            implementation("cafe.adriel.voyager:voyager-navigator:$voyagerVersion")
 //            implementation("cafe.adriel.voyager:voyager-bottom-sheet-navigator:$voyagerVersion")
 //            implementation("cafe.adriel.voyager:voyager-tab-navigator:$voyagerVersion")
 //            implementation("cafe.adriel.voyager:voyager-transitions:$voyagerVersion")
-
+            //implementation("cafe.adriel.voyager:voyager-lifecycle-kmp:$voyagerVersion")
+//            implementation("media.kamel:kamel-image:0.9.5")
             implementation(libs.kstatemachine)
             implementation(libs.kstatemachine.coroutines)
 
-            api(libs.koin.core)
-            implementation(libs.koin.compose)
 
             implementation(compose.runtime)
             implementation(compose.foundation)
